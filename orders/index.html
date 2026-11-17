@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказы — Кухни мира</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <aside class="sidebar">
+        <h2>🍳 Кухни мира</h2>
+        <a href="../recipes/index.html">📖 Рецепты</a>
+        <a href="../categories/index.html">📂 Категории</a>
+        <a href="../ingredients/index.html">🥕 Ингредиенты</a>
+        <a href="../steps/index.html">👣 Шаги</a>
+        <a href="../orders/index.html" class="active">🛒 Заказы</a>
+        <a href="../login.html">🚪 Выйти</a>
+    </aside>
+
+    <main class="main">
+        <div class="topbar">
+            <h1>Заказы пользователей</h1>
+        </div>
+
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Клиент</th>
+                        <th>Рецепты</th>
+                        <th>Сумма</th>
+                        <th>Статус</th>
+                        <th>Дата</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <strong>user@example.com</strong><br>
+                            <span class="text-muted">Иванов Иван Иванович</span>
+                        </td>
+                        <td>
+                            Мастер-класс: Пельмени — 500.00 ₽<br>
+                            Шашлык по-карски — 350.00 ₽
+                        </td>
+                        <td><strong>850.00 ₽</strong></td>
+                        <td><span class="badge badge-paid">Оплачено</span></td>
+                        <td>17.11.2026 10:15</td>
+                        <td><span class="text-muted">Недоступно</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <strong>anna@mail.ru</strong><br>
+                            <span class="text-muted">Петрова Анна Сергеевна</span>
+                        </td>
+                        <td>
+                            Мастер-класс: Пельмени — 500.00 ₽
+                        </td>
+                        <td><strong>500.00 ₽</strong></td>
+                        <td><span class="badge badge-pending">Не оплачено</span></td>
+                        <td>17.11.2026 09:30</td>
+                        <td><span class="text-muted">Недоступно</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <strong>sergey@yandex.ru</strong><br>
+                            <span class="text-muted">Сидоров Сергей</span>
+                        </td>
+                        <td>
+                            Шашлык по-карски — 350.00 ₽
+                        </td>
+                        <td><strong>350.00 ₽</strong></td>
+                        <td><span class="badge badge-failed">Ошибка оплаты</span></td>
+                        <td>16.11.2026 18:45</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Удалить</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <strong>olga@gmail.com</strong><br>
+                            <span class="text-muted">Смирнова Ольга</span>
+                        </td>
+                        <td>
+                            Мастер-класс: Пельмени — 500.00 ₽
+                        </td>
+                        <td><strong>500.00 ₽</strong></td>
+                        <td><span class="badge badge-expired">Истекло время</span></td>
+                        <td>16.11.2026 15:20</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Удалить</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <strong>ivan@bk.ru</strong><br>
+                            <span class="text-muted">Козлов Иван</span>
+                        </td>
+                        <td>
+                            Мастер-класс: Пельмени — 500.00 ₽
+                        </td>
+                        <td><strong>500.00 ₽</strong></td>
+                        <td><span class="badge badge-paid">Оплачено</span></td>
+                        <td>15.11.2026 12:00</td>
+                        <td><span class="text-muted">Недоступно</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ПАГИНАЦИЯ (5 на страницу) -->
+            <div class="pagination">
+                <span>« Назад</span>
+                <span class="active"><span>1</span></span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Вперёд »</a>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход — Кухни мира</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="login-page">
+    <div class="login-box">
+        <h1>🍳 Кухни мира</h1>
+        <p class="text-center text-muted mb-20">Вход в админ-панель</p>
+
+        <!-- Сообщение об ошибке -->
+        <div class="alert alert-danger">
+            Неверный логин или пароль
+        </div>
+
+        <form method="POST" action="/admin/login" novalidate>
+            <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" class="form-control is-invalid"
+                       value="" required placeholder="admin@champ2026">
+                <span class="invalid-feedback">Поле обязательно для заполнения</span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль *</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

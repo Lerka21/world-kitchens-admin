@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование — Кухни мира</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <aside class="sidebar">
+        <h2>🍳 Кухни мира</h2>
+        <a href="../recipes/index.html" class="active">📖 Рецепты</a>
+        <a href="../categories/index.html">📂 Категории</a>
+        <a href="../ingredients/index.html">🥕 Ингредиенты</a>
+        <a href="../steps/index.html">👣 Шаги</a>
+        <a href="../orders/index.html">🛒 Заказы</a>
+        <a href="../login.html">🚪 Выйти</a>
+    </aside>
+
+    <main class="main">
+        <div class="topbar">
+            <h1>Редактирование: Борщ классический</h1>
+            <a href="index.html" class="btn btn-secondary">← К списку</a>
+        </div>
+
+        <div class="card">
+            <form method="POST" action="/admin/recipes/1" enctype="multipart/form-data" novalidate>
+
+                <div class="form-group">
+                    <label>Название рецепта *</label>
+                    <input type="text" name="title" maxlength="20" class="form-control"
+                           value="Борщ классический" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Описание рецепта * (от 50 до 250 символов)</label>
+                    <textarea name="description" rows="4" maxlength="250"
+                              class="form-control" required>Классический украинский борщ с говядиной, свеклой и капустой. Готовится на мясном бульоне с добавлением томатной пасты и чеснока.</textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Время приготовления (мин) *</label>
+                            <input type="number" name="cooking_time" min="1" class="form-control" value="120" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Сложность *</label>
+                            <select name="difficulty" class="form-control" required>
+                                <option value="легко">Легко</option>
+                                <option value="средне" selected>Средне</option>
+                                <option value="сложно">Сложно</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Цена *</label>
+                            <input type="number" step="0.01" min="100" name="price"
+                                   class="form-control" value="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Категория *</label>
+                    <select name="category_id" class="form-control" required>
+                        <option value="1" selected>Первые блюда</option>
+                        <option value="2">Вторые блюда</option>
+                        <option value="3">Десерты</option>
+                    </select>
+                </div>
+
+                <hr>
+                <h3 class="mb-10">Фотографии</h3>
+                <p class="text-muted mb-10">
+                    Если не загрузите новые — старые останутся. Если загрузите — старые удалятся с диска.
+                </p>
+                <div class="form-group">
+                    <label>Заменить фотографии (необязательно)</label>
+                    <input type="file" name="images[]" multiple accept=".jpg,.jpeg,.png,.webp" class="form-control">
+                </div>
+
+                <p class="text-muted">Текущие фотографии (выберите обложку):</p>
+                <div class="image-grid">
+                    <div class="image-item">
+                        <img src="https://via.placeholder.com/100" alt="">
+                        <label style="display:block; margin-top:5px;">
+                            <input type="radio" name="default_image" value="1" checked> Обложка
+                        </label>
+                        <button type="button" class="remove-img" title="Удалить">×</button>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://via.placeholder.com/100" alt="">
+                        <label style="display:block; margin-top:5px;">
+                            <input type="radio" name="default_image" value="2"> Обложка
+                        </label>
+                        <button type="button" class="remove-img" title="Удалить">×</button>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://via.placeholder.com/100" alt="">
+                        <label style="display:block; margin-top:5px;">
+                            <input type="radio" name="default_image" value="3"> Обложка
+                        </label>
+                        <button type="button" class="remove-img" title="Удалить">×</button>
+                    </div>
+                </div>
+
+                <hr>
+                <h3 class="mb-10">Ингредиенты</h3>
+                <div class="row mb-10" style="align-items: flex-end;">
+                    <div class="col">
+                        <label>Ингредиент</label>
+                        <select name="ingredients[0][id]" class="form-control">
+                            <option value="1" selected>Свекла (шт)</option>
+                            <option value="2">Морковь (шт)</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Количество</label>
+                        <input type="number" step="0.01" name="ingredients[0][quantity]" class="form-control" value="2">
+                    </div>
+                    <div class="col">
+                        <label>Единица</label>
+                        <select name="ingredients[0][unit]" class="form-control">
+                            <option value="шт" selected>шт</option>
+                            <option value="л">л</option>
+                        </select>
+                    </div>
+                    <div><button type="button" class="btn btn-danger btn-sm">×</button></div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm">+ Добавить ингредиент</button>
+
+                <hr>
+                <h3 class="mb-10">Шаги приготовления</h3>
+                <div style="border: 1px solid #ddd; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
+                    <div class="form-group">
+                        <label>Название шага *</label>
+                        <input type="text" name="steps[0][title]" maxlength="40" class="form-control"
+                               value="Подготовка продуктов" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Описание шага *</label>
+                        <textarea name="steps[0][description]" maxlength="255" class="form-control" rows="2" required>Помыть и почистить овощи</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Текущее фото:</label>
+                        <img src="https://via.placeholder.com/120" style="border-radius:4px;">
+                    </div>
+                    <div class="form-group">
+                        <label>Заменить фото (необязательно)</label>
+                        <input type="file" name="steps[0][image]" accept=".jpg,.jpeg,.png,.webp" class="form-control">
+                    </div>
+                    <button type="button" class="btn btn-danger btn-sm">Удалить шаг</button>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm">+ Добавить шаг</button>
+
+                <hr>
+                <button type="submit" class="btn btn-success">Сохранить изменения</button>
+                <a href="index.html" class="btn btn-secondary">Отмена</a>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
